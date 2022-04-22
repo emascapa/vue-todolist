@@ -1,0 +1,17 @@
+.bg_custom {
+    background-color: lightseagreen;
+}
+
+.container_custom {
+    margin: 3rem auto;
+    width: 40%;
+    max-width: 400px;
+}
+
+.tasks_container i {
+    cursor: pointer;
+}
+
+.task_done {
+    text-decoration: line-through;
+}
