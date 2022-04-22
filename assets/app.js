@@ -34,9 +34,9 @@ const app = new Vue(
 
                     this.userInput = '';
                 } else {
-                    console.log('scemoooo');
+                    console.log('inserisci task!!!!');
+                    this.fadeInOut(document.querySelector('.form-control'), 200);
                     this.userInput = '';
-                    //document.querySelector('.form-control')
                 }
             },
 
@@ -51,7 +51,24 @@ const app = new Vue(
                 } else {
                     this.tasks[index].done = false
                 }
-            }
+            },
+
+            fadeInOut(el, delay) {
+
+
+                if(el === null || !el) {
+                    return false;
+                }
+                
+                el.style.transition = 'background-color ' + delay + 'ms ease-out';
+                el.style.backgroundColor = 'lightcoral';
+
+            
+                setTimeout(() => {
+                    el.style.transition = 'background-color ' + delay + 'ms ease-out';
+                    el.style.backgroundColor = '';
+                }, delay);
+            },
         },
     }
 )
