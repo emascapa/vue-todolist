@@ -24,8 +24,32 @@ const app = new Vue(
         },
         methods: {
             addTask() {
-                if (this.userInput !== '') {
-                    
+                if (this.userInput.replace(/\s+/g, '') !== '') {
+                    const newTask = {
+                        label: this.userInput,
+                        done: false,
+                    };
+
+                    this.tasks.push(newTask)
+
+                    this.userInput = '';
+                } else {
+                    console.log('scemoooo');
+                    this.userInput = '';
+                    //document.querySelector('.form-control')
+                }
+            },
+
+            removeTask(index) {
+                console.log(`hai cliccato ${index}`);
+                this.tasks.splice(index,1);
+            },
+
+            isTaskDone(index) {
+                if (this.tasks[index].done === false) {
+                    this.tasks[index].done = true;
+                } else {
+                    this.tasks[index].done = false
                 }
             }
         },

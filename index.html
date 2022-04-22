@@ -25,19 +25,22 @@
                 <h1 class="text-center mb-3">To Do List</h1>
                 <div class="d-flex align-items-center">
                     <input type="text" placeholder="Insert your task here" class="form-control rounded-pill me-3"
-                        v-model="userInput">
-                    <button class="btn btn-dark rounded-pill">Add</button>
+                        v-model="userInput" v-on:keyup.enter="addTask">
+                    <button class="btn btn-dark rounded-pill" @click="addTask">Add</button>
                 </div>
             </div>
 
             <div v-if="tasks.length > 0" class="tasks_container">
                 <h3 class="text-center mb-3">Tasks</h3>
                 <ul class="list-group">
-                    <li v-for="(item, index) in tasks" :class="li_task_class"><span :class="item.done ? 'task_done' : '' ">{{item.label}}</span> <i :class="x_btn_class"></i></li>
+                    <li v-for="(item, index) in tasks" :class="li_task_class">
+                        <span :class="item.done ? 'task_done' : '' " @click="isTaskDone(index)">{{item.label}}</span> 
+                        <i :class="x_btn_class" @click="removeTask(index)"></i>
+                    </li>
 
                 </ul>
             </div>
-            <div v-else>
+            <div v-else class="d-flex justify-content-center">
                 <span class="lead">No task to do eheh 👌</span>
             </div>
 

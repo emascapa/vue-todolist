@@ -1,5 +1,5 @@
 .bg_custom {
-    background-color: lightseagreen;
+    background-color: rgb(110, 157, 193);
 }
 
 .container_custom {
@@ -8,7 +8,7 @@
     max-width: 400px;
 }
 
-.tasks_container i {
+.tasks_container li>* {
     cursor: pointer;
 }
 
